@@ -8,10 +8,12 @@
           :key="index"
         >
           <div class="card">
-            <img v-lazy="catalogItem.src" class="card-img-top catalog-img" :alt="catalogItem.title">
+            <div class="card-header">
+              <h5>{{ catalogItem.title }}</h5>
+            </div>
+            <img v-lazy="catalogItem.src" class="catalog-img" :alt="catalogItem.title">
             <div class="card-body">
-              <h5 class="card-title">{{ catalogItem.title }}</h5>
-              <router-link :to="catalogItem.link" class="btn btn-secondary">Перейти</router-link>
+              <router-link :to="catalogItem.link" class="btn btn-secondary w-100">More</router-link>
             </div>
           </div>
         </div>
@@ -21,8 +23,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
-
 
 export default {
   name: 'Main',

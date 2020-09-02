@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Catalog from '../views/Catalog.vue'
 
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -11,12 +12,18 @@ const routes = [
     component: Catalog
   },
   {
-    path: '/about',
-    name: 'About',
+    path: '/characters',
+    name: 'Characters',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    component: () => import(/* webpackChunkName: "Characters" */ '../views/Characters.vue')
+  },
+  {
+    path: '/character/:id',
+    name: 'Character',
+    props: true,
+    component: () => import(/* webpackChunkName: "Character" */ '../views/Character.vue')
   }
 ]
 
