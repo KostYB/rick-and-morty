@@ -2,7 +2,7 @@
   <div class="characters container">
     <h1 class="mb-5">Characters</h1>
 
-    <div class="row mb-3">
+    <div class="row mb-5">
       <div
         class="col-md-6 mb-4 character"
         v-for="character in charactersResult"
@@ -20,6 +20,24 @@
         </div>
       </div>
     </div>
+    <paginate
+      v-model="page"
+      :page-count="Number(charactersInfo.pages)"
+      :page-range="3"
+      :margin-pages="2"
+      :click-handler="paginateCallback"
+      :prev-text="'Prev'"
+      :next-text="'Next'"
+      :container-class="'pagination justify-content-center'"
+      :page-class="'page-item'"
+      :prev-class="'page-item'"
+      :next-class="'page-item'"
+      :page-link-class="'page-link'"
+      :prev-link-class="'page-link'"
+      :next-link-class="'page-link'"
+      >
+    </paginate>
+
 
   </div>
 </template>
@@ -27,20 +45,44 @@
 <script>
 
 import { mapGetters, mapActions } from 'vuex'
+import Paginate from 'vuejs-paginate'
 
 export default {
   name: 'Characters',
+  components: {
+    Paginate
+  },
+  data () {
+    return {
+      page: 1
+    }
+  },
   methods: {
-    ...mapActions(['GET_CHARACTERS'])
+    ...mapActions(['GET_CHARACTERS']),
+    paginateCallback (pageNum) {
+      const vm = this
+      this.GET_CHARACTERS(pageNum)
+      this.$router.push({ name: 'Characters', params: { id: `${pageNum}` } }, () => {})
+    }
   },
   computed: {
     ...mapGetters(['CHARACTERS']),
     charactersResult () {
       return this.CHARACTERS.results
+    },
+    charactersInfo () {
+      return { ...this.CHARACTERS.info }
     }
   },
   mounted () {
     this.GET_CHARACTERS()
+  },
+  beforeRouteEnter (to, from, next) {
+    next(vm => {
+      const pageNumber = Number(vm.$route.params.id)
+      vm.GET_CHARACTERS(pageNumber)
+      vm.page = pageNumber
+    })
   }
 }
 </script>
@@ -63,6 +105,12 @@ export default {
     height: 100%;
     object-position: center;
     object-fit: cover;
+  }
+}
+.page-item.active {
+  .page-link {
+    background-color: #6c757d;
+    border-color: #6c757d;
   }
 }
 </style>

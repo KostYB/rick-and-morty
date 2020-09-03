@@ -13,10 +13,12 @@ const routes = [
   },
   {
     path: '/characters',
+    redirect: '/characters/1'
+  },
+  {
+    path: '/characters/:id',
     name: 'Characters',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
+    props: true,
     component: () => import(/* webpackChunkName: "Characters" */ '../views/Characters.vue')
   },
   {

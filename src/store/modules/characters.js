@@ -22,8 +22,8 @@ export default {
     }
   },
   actions: {
-    GET_CHARACTERS: async ({ commit }) => {
-      await fetch('https://rickandmortyapi.com/api/character/')
+    GET_CHARACTERS: async ({ commit }, payload = 1) => {
+      await fetch('https://rickandmortyapi.com/api/character/?page=' + payload)
         .then((response) => {
           return response.json()
         })

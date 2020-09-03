@@ -32,7 +32,7 @@ export default {
         {
           title: 'Characters',
           src: require(`${'@/assets/img/charachers.jpg'}`),
-          link: '/characters'
+          link: '/characters/1'
         },
         {
           title: 'Locations',

@@ -9,16 +9,16 @@
             <img v-lazy="CHARACTER_BY_ID.image" :alt="CHARACTER_BY_ID.name" class="character-item__img">
           </div>
           <div class="col p-3 d-flex flex-column">
-            <p class="mb-2"><b>Status - </b> {{ CHARACTER_BY_ID.status }}</p>
-            <p class="mb-2"><b>Species - </b> {{ CHARACTER_BY_ID.species }}</p>
+            <p v-if="CHARACTER_BY_ID.status" class="mb-2"><b>Status - </b> {{ CHARACTER_BY_ID.status }}</p>
+            <p v-if="CHARACTER_BY_ID.species" class="mb-2"><b>Species - </b> {{ CHARACTER_BY_ID.species }}</p>
             <p v-if="CHARACTER_BY_ID.type" class="mb-2"><b>Type - </b> {{ CHARACTER_BY_ID.type }}</p>
-            <p class="mb-2"><b>Gender - </b> {{ CHARACTER_BY_ID.gender }}</p>
-            <p class="mb-2"><b>Origin - </b> {{ CHARACTER_BY_ID.origin.name }}</p>
-            <p class="mb-2"><b>Location - </b> {{ CHARACTER_BY_ID.location.name }}</p>
+            <p v-if="CHARACTER_BY_ID.gender" class="mb-2"><b>Gender - </b> {{ CHARACTER_BY_ID.gender }}</p>
+            <p v-if="{...CHARACTER_BY_ID.origin}.name" class="mb-2"><b>Origin - </b> {{ {...CHARACTER_BY_ID.origin}.name }}</p>
+            <p v-if="{...CHARACTER_BY_ID.location}.name" class="mb-2"><b>Location - </b> {{ {...CHARACTER_BY_ID.location}.name }}</p>
           </div>
         </div>
       </div>
-      <router-link :to="{ name: 'Characters'}">Back to Characters</router-link>
+      <a class="btn btn-secondary" @click="$router.go(-1)">Back to Characters</a>
       <div class="mb-5"></div>
     </div>
   </div>
