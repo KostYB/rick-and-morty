@@ -2,7 +2,7 @@
   <div class="characters container">
     <h1 class="mb-5">Characters</h1>
 
-    <div class="row">
+    <div class="row mb-3">
       <div
         class="col-md-6 mb-4 character"
         v-for="character in charactersResult"
@@ -31,7 +31,7 @@ import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'Characters',
   methods: {
-    ...mapActions(['GET_CHARACTER'])
+    ...mapActions(['GET_CHARACTERS'])
   },
   computed: {
     ...mapGetters(['CHARACTERS']),
@@ -40,29 +40,29 @@ export default {
     }
   },
   mounted () {
-    this.GET_CHARACTER()
+    this.GET_CHARACTERS()
   }
 }
 </script>
 
 <style lang="scss">
-  .character {
-    &__picture {
-      position: relative;
-      min-height: 150px;
-      cursor: pointer;
-      user-select: none;
-    }
-    &__img {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-position: center;
-      object-fit: cover;
-    }
+.character {
+  &__picture {
+    position: relative;
+    min-height: 150px;
+    cursor: pointer;
+    user-select: none;
   }
+  &__img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    object-fit: cover;
+  }
+}
 </style>

@@ -10,7 +10,7 @@ Vue.config.productionTip = false
 Vue.use(VueLazyload, {
   preLoad: 0,
   error: require(`${'@/assets/img/350.png'}`),
-  loading: require(`${'@/assets/img/loading.svg'}`),
+  loading: require(`${'@/assets/img/loading.gif'}`),
   attempt: 3,
   lazyComponent: true,
   observer: true,
