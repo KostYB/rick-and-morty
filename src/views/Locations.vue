@@ -4,49 +4,49 @@
       <h1 class="mb-5">Locations</h1>
 
 
-
-        <table class="table table-striped mb-5">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th>Name</th>
-              <th>Type</th>
-              <th>Dimension</th>
-              <th>Residents</th>
-            </tr>
-          </thead>
-          <tbody>
-            <router-link tag="tr" :to="{ name: 'Location', params: { id: `${location.id}` }}"
-              v-for="location in locationsResult"
-              :key="location.id"
-            >
-              <th scope="row">{{ location.id }}</th>
-              <td>{{ location.name }}</td>
-              <td>{{ location.type }}</td>
-              <td>{{ location.dimension }}</td>
-              <td>{{ location.residents.length }}</td>
-            </router-link>
-          </tbody>
-        </table>
-
-        <paginate
-          v-model="page"
-          :page-count="Number(locationsInfo.pages)"
-          :page-range="3"
-          :margin-pages="2"
-          :click-handler="paginateCallback"
-          :prev-text="'Prev'"
-          :next-text="'Next'"
-          :container-class="'pagination justify-content-center'"
-          :page-class="'page-item'"
-          :prev-class="'page-item'"
-          :next-class="'page-item'"
-          :page-link-class="'page-link'"
-          :prev-link-class="'page-link'"
-          :next-link-class="'page-link'"
-        >
-        </paginate>
-        <div class="mb-5"></div>
+      <div class="table-responsive">
+          <table class="table table-striped mb-5">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Dimension</th>
+                <th>Residents</th>
+              </tr>
+            </thead>
+            <tbody>
+              <router-link tag="tr" :to="{ name: 'Location', params: { id: `${location.id}` }}"
+                v-for="location in locationsResult"
+                :key="location.id"
+              >
+                <th scope="row">{{ location.id }}</th>
+                <td>{{ location.name }}</td>
+                <td>{{ location.type }}</td>
+                <td>{{ location.dimension }}</td>
+                <td>{{ location.residents.length }}</td>
+              </router-link>
+            </tbody>
+          </table>
+      </div>
+      <paginate
+        v-model="page"
+        :page-count="Number(locationsInfo.pages)"
+        :page-range="3"
+        :margin-pages="2"
+        :click-handler="paginateCallback"
+        :prev-text="'Prev'"
+        :next-text="'Next'"
+        :container-class="'pagination justify-content-center'"
+        :page-class="'page-item'"
+        :prev-class="'page-item'"
+        :next-class="'page-item'"
+        :page-link-class="'page-link'"
+        :prev-link-class="'page-link'"
+        :next-link-class="'page-link'"
+      >
+      </paginate>
+      <div class="mb-5"></div>
     </div>
   </div>
 </template>
