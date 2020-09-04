@@ -4,3 +4,19 @@
 .card {
   color: #2c3e50;
 }
+.page-item {
+  * {
+    user-select: none;
+  }
+  &.active {
+    .page-link {
+      background-color: #6c757d;
+      border-color: #6c757d;
+    }
+  }
+}
+.table {
+  tr {
+    cursor: pointer;
+  }
+}

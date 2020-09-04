@@ -26,6 +26,22 @@ const routes = [
     name: 'Character',
     props: true,
     component: () => import(/* webpackChunkName: "Character" */ '../views/Character.vue')
+  },
+  {
+    path: '/locations',
+    redirect: '/locations/1'
+  },
+  {
+    path: '/locations/:id',
+    name: 'Locations',
+    props: true,
+    component: () => import(/* webpackChunkName: "Locations" */ '../views/Locations.vue')
+  },
+  {
+    path: '/location/:id',
+    name: 'Location',
+    props: true,
+    component: () => import(/* webpackChunkName: "Location" */ '../views/Location.vue')
   }
 ]
 

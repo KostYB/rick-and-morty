@@ -37,7 +37,7 @@
       :next-link-class="'page-link'"
       >
     </paginate>
-
+    <div class="mb-5"></div>
 
   </div>
 </template>
@@ -107,10 +107,5 @@ export default {
     object-fit: cover;
   }
 }
-.page-item.active {
-  .page-link {
-    background-color: #6c757d;
-    border-color: #6c757d;
-  }
-}
+
 </style>

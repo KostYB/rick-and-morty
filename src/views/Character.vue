@@ -2,7 +2,6 @@
   <div class="character-item">
     <div class="container">
       <h1 class="mb-5"> {{ CHARACTER_BY_ID.name }} </h1>
-
       <div class="character-item__container mb-4">
         <div class="row no-gutters rounded border border-warning h-100">
           <div class="col character-item__picture">
@@ -18,7 +17,7 @@
           </div>
         </div>
       </div>
-      <a class="btn btn-secondary" @click="$router.go(-1)">Back to Characters</a>
+      <a class="btn btn-secondary" @click="$router.go(-1)">Back</a>
       <div class="mb-5"></div>
     </div>
   </div>
