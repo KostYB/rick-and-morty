@@ -8,22 +8,12 @@
 
         <ul class="my-2 my-md-0 d-sm-flex">
           <router-link
-            v-slot="{ href, route, navigate, isActive, isExactActive }"
-            class="text-center"
             v-for="(link, index) in links"
             :key="index"
-            :to="link"
+            :to="'/' + link"
+            class="text-center text-capitalize text-dark ml-lg-3 mr-lg-0 ml-sm-2 mr-sm-2"
           >
-            <li
-              class="ml-lg-3 mr-lg-0 ml-sm-2 mr-sm-2"
-              :class="[isActive && 'router-link-active' && 'active', isExactActive && 'router-link-exact-active']"
-            >
-              <a
-                :href="href"
-                class="text-capitalize text-dark"
-                @click="navigate">{{ link }}
-              </a>
-            </li>
+            {{ link }}
           </router-link>
         </ul>
       </nav>

@@ -48,7 +48,9 @@ export default {
           return response.json()
         })
         .then((data) => {
-          commit('SET_LOCATIONS', data)
+          if (data.error === undefined) {
+            commit('SET_LOCATIONS', data)
+          }
         })
     },
     GET_LOCATIONS_BY_ID: async ({ commit }, payload) => {

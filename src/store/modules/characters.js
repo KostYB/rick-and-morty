@@ -28,7 +28,9 @@ export default {
           return response.json()
         })
         .then((data) => {
-          commit('SET_CHARACTERS', data)
+          if (data.error === undefined) {
+            commit('SET_CHARACTERS', data)
+          }
         })
     },
     GET_CHARACTER_BY_ID: async ({ commit }, payload) => {
